@@ -1,12 +1,31 @@
 {
+  "id": "/index.html",
   "name": "2048",
   "short_name": "2048",
   "description": "Slide and merge numbered tiles to reach the 2048 tile!",
   "start_url": "index.html",
+  "scope": "/",
   "display": "fullscreen",
   "orientation": "portrait",
   "background_color": "#faf8ef",
   "theme_color": "#faf8ef",
+  "categories": ["games", "puzzle", "entertainment"],
+  "screenshots": [
+    {
+      "src": "screenshots/mobile-1.png",
+      "sizes": "1080x1080",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "2048 gameplay on mobile"
+    },
+    {
+      "src": "screenshots/wide-1.png",
+      "sizes": "1920x1125",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "2048 gameplay on desktop"
+    }
+  ],
   "icons": [
     { "src": "icons/icon-48.png", "sizes": "48x48", "type": "image/png" },
     { "src": "icons/icon-72.png", "sizes": "72x72", "type": "image/png" },
