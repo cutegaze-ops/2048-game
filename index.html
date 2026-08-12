@@ -31,16 +31,21 @@
     margin: 0;
     height: 100%;
     overscroll-behavior: none;   /* stop pull-to-refresh / bounce so it feels native */
-    touch-action: none;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;       /* hide scrollbar: Firefox */
+    -ms-overflow-style: none;    /* hide scrollbar: IE/Edge */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;               /* hide scrollbar: Chrome/Safari/WebView */
   }
 
   body {
     min-height: 100vh;
     min-height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     background: var(--bg);
     font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
     color: var(--text-dark);
@@ -52,10 +57,8 @@
   .container {
     width: 100%;
     max-width: 480px;
-    max-height: 100vh;
-    max-height: 100dvh;
-    overflow-y: auto;
-    padding: 16px;
+    margin: 0 auto;
+    padding: 24px 16px;
   }
 
   header {
@@ -281,7 +284,7 @@
   </header>
 
   <div class="controls-row">
-    <div class="how-to">Use <strong>arrow keys</strong> / <strong>swipe</strong> to move tiles.</div>
+    <div class="how-to"><strong>swipe</strong> to move tiles.</div>
     <button class="new-game" id="newGameBtn">New Game</button>
   </div>
 
@@ -586,9 +589,6 @@
       move(map[e.key]);
     }
   });
-
-  // Stop the page itself from scrolling/bouncing when wrapped in a native WebView
-  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false });
 
   // Touch / swipe controls
   let touchStartX = 0, touchStartY = 0;
