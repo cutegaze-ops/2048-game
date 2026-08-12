@@ -284,7 +284,7 @@
   </header>
 
   <div class="controls-row">
-    <div class="how-to"><strong>swipe</strong> to move tiles.</div>
+    <div class="how-to">Use <strong>arrow keys</strong> / <strong>swipe</strong> to move tiles.</div>
     <button class="new-game" id="newGameBtn">New Game</button>
   </div>
 
@@ -618,6 +618,15 @@
   });
 
   startGame();
+
+  // Register service worker for offline play (required by PWABuilder / Amazon Appstore packaging)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function (err) {
+        console.warn('Service worker registration failed:', err);
+      });
+    });
+  }
 })();
 </script>
 
